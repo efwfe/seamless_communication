@@ -1,0 +1,22 @@
+version: "3"
+services:
+   seamless:
+     build:
+       context: .
+       dockerfile: Dockerfile
+     command: bash -c "python api.py"
+     network_mode: host
+     runtime: nvidia
+     volumes:
+       - ../cache:/root/.cache
+     environment:
+       - NVIDIA_VISIBLE_DEVICES=all
+       - HTTPS_PROXY=http://xxxx:xxxx
+     restart: always
+     deploy:
+        resources:
+          reservations:
+            devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

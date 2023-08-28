@@ -1,3 +1,8 @@
+# 中国环境部署seamless模型 GPU + Docker
+- 环境依赖: `docker+docker-nvidia-toolkit`
+- `docker-compose.yml` 修改模型下载代理地址，下载会缓存，后续可以不需要代理
+- 启动命令: `docker compose up --build -d`
+
 ![](seamlessM4T.png)
 # SeamlessM4T
 SeamlessM4T is designed to provide high quality translation, allowing people from different linguistic communities to communicate effortlessly through speech and text.
